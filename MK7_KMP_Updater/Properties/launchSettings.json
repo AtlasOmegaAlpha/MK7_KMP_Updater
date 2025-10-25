@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MK7_KMP_Updater": {
+      "commandName": "Project",
+      "commandLineArgs": "Gctr_MarioCircuit.kmp"
+    }
+  }
+}
