@@ -94,10 +94,16 @@ namespace amsdec
                 long currentPos = writer.Position;
                 writer.Position = currentSectionPos;
                 writer.WriteString(section.Value.sectionMagic);
-                writer.WriteUInt16(section.Value.nrEntries);
+                if (section.Value.sectionMagic == "SROC")
+                    writer.WriteUInt16(0);
+                else
+                    writer.WriteUInt16(section.Value.nrEntries);
                 writer.WriteUInt16(section.Value.extraValue);
                 for (int j = 0; j < section.Value.nrEntries; j++)
                 {
+                    if (section.Value.sectionMagic == "SROC")
+                        continue;
+
                     if (section.Value.entryData[j] != null && section.Value.entryData[j].Length > 0)
                         writer.WriteBytes(section.Value.entryData[j]);
                 }
@@ -232,6 +238,7 @@ namespace amsdec
                         break;
 
                     case "SROC":
+                        this.entryData.Add(reader.ReadBytes(0x2C));
                         break;
 
                     case "TPLG":
