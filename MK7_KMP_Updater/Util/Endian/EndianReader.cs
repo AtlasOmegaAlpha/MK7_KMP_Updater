@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Numerics;
+using System.Text;
 
 namespace System.IO
 {
@@ -270,6 +271,16 @@ namespace System.IO
         public float[] ReadFloats(int count)
         {
             return ReadSingles(count);
+        }
+
+        public Vector2 ReadVector2()
+        {
+            return new Vector2(ReadSingles(2));
+        }
+
+        public Vector3 ReadVector3()
+        {
+            return new Vector3(ReadSingles(3));
         }
 
         public double ReadDouble()

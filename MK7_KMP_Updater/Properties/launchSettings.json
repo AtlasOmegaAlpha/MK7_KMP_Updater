@@ -2,7 +2,7 @@
   "profiles": {
     "MK7_KMP_Updater": {
       "commandName": "Project",
-      "commandLineArgs": "test_Divide.kmp"
+      "commandLineArgs": "*.kmp -e KTPT,ENPT,TPNC"
     }
   }
 }

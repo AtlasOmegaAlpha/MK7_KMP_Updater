@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Numerics;
+using System.Text;
 
 namespace System.IO
 {
@@ -232,6 +233,16 @@ namespace System.IO
         public void WriteFloats(float[] data)
         {
             WriteSingles(data);
+        }
+
+        public void WriteVector2(Vector2 data)
+        {
+            WriteSingles([data.X, data.Y]);
+        }
+
+        public void WriteVector3(Vector3 data)
+        {
+            WriteSingles([data.X, data.Y, data.Z]);
         }
 
         public void WriteDouble(double data)
